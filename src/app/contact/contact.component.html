@@ -1,0 +1,50 @@
+<p>contact works!</p>
+<h1>This is contact page</h1>
+
+<label for="num">Enter a number to find even or odd</label>
+<input type="text" name="num" [(ngModel)]="num">
+
+<!--checking if the input is empty or zero-->
+<p *ngIf="validate(); else check"> Enter a number  </p>
+<ng-template #check>
+	<p *ngIf="EvenOdd(); else odd"> {{num}} is even </p>
+  <ng-template #odd><p>{{num}} is odd</p></ng-template>
+</ng-template>
+
+<!--inbuilt pipe for converting data of one type to another type-->
+<h1>{{curr  | currency}}</h1>
+<h1>{{per | percent}}</h1>
+<h1>{{today | date}}</h1>
+<h1>{{obj | json}}</h1>
+<h1>{{word1 | lowercase}}</h1>
+<h1>{{word2 | uppercase}}</h1>
+
+<!--parameterised -->
+<h1>{{today | date}}</h1> //mm dd, yyyy
+<h1>{{today | date:'short'}}</h1>
+<h1>{{today | date:'medium'}}</h1>
+<h1>{{today | date:'long'}}</h1>
+<h1>{{today | date:'full'}}</h1>
+<h1>{{today | date:'shortDate'}}</h1>
+<h1>{{today | date:'mediumDate'}}</h1>
+<h1>{{today | date:'longDate'}}</h1>
+<h1>{{today | date:'fullDate'}}</h1>
+<h1>{{today | date:'shortTime'}}</h1>
+<h1>{{today | date:'mediumTime'}}</h1>
+<h1>{{today | date:'longTime'}}</h1>
+<h1>{{today | date:'fullTime'}}</h1>
+
+<h1>{{curr | currency:'INR'}}</h1>
+<h1>{{curr | currency:'inr'}}</h1>
+<h1>{{curr | currency:'USD'}}</h1>
+<h1>{{curr | currency:'usd'}}</h1>
+<h1>{{curr | currency:'CAD'}}</h1>
+<h1>{{curr | currency:'cad'}}</h1>
+
+<h1>{{per | percent: '3.2-2'}}</h1>
+<h1>{{per | percent: '3.1-1'}}</h1>
+<h1>{{per | percent: '6.5-5'}}</h1>
+<h1>{{per | percent: '2.5-5'}}</h1>
+
+<p>{{today | date:'full' | uppercase}}</p>
+<p>{{curr | currency:'INR' | uppercase}}</p>

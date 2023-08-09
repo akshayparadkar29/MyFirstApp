@@ -1,0 +1,8 @@
+<form [formGroup]="addloanform">
+    <input [ngClass]="addloanform.get('loanname')?.hasError('required')==true?style1:style2" type="text" formControlName="loanname">
+    <div class="text-danger" *ngIf="addloanform.get('loanname')?.hasError('required') || addloanform.get('loanname')?.touched">Loan Name is Required</div>
+    <div class="text-primary" *ngIf="addloanform.get('loanname')?.hasError('minlength') || addloanform.get('loanname')?.hasError('maxlength')">Loan Name should be atleast 5 characters</div>
+    <textarea formControlName="loandesc"></textarea>
+    <button (click)="submit()" [disabled]="!addloanform.valid">SUBMIT</button>
+    <button (click)="formStates()">STATUS</button>
+</form>

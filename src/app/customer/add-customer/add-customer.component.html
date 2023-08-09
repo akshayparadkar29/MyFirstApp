@@ -1,0 +1,18 @@
+<form #addcustomerform="ngForm" (submit)="addpeople(addcustomerform)">
+    <input type="text" [(ngModel)]="username" name="username" required>
+    <input type="checkbox" [(ngModel)]="terms" name="terms" required>
+    <select [(ngModel)]="type" name="type" id="">
+        <option value="1">STANDARD</option>
+        <option value="2">ADMIN</option>
+    </select>
+    <textarea [(ngModel)]="desc" name="desc" id="" cols="30" rows="10" minlength="5" maxlength="10" required></textarea>
+    <input type="submit" value="ENTER" [disabled]="!addcustomerform.valid">
+    <button (click)="reset(addcustomerform)">CLEAR</button>
+    <button (click)="loadData(addcustomerform)">LOAD</button>
+</form>
+
+Hi {{username}}, Thanks for applying for this connection.
+We are glad to have you as {{type}} customer.
+We got your note {{desc}}.
+
+We will get back to you!
